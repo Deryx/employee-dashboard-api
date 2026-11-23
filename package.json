@@ -2,7 +2,7 @@
   "name": "employee-dashboard-api",
   "private": true,
   "scripts": {
-    "start": "json-server db.json --host 0.0.0.0 --port $PORT"
+    "start": "node -e \"const p = Number(process.env.PORT) || 3001; import('child_process').then(({ spawn }) => { const child = spawn(process.execPath, ['node_modules/json-server/lib/bin.js', 'db.json', '--host', '0.0.0.0', '--port', String(p)], { stdio: 'inherit' }); child.on('exit', (code) => process.exit(code ?? 0)); });\""
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.3"
